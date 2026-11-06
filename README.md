@@ -52,6 +52,27 @@ start()
 - إضافة handler الرسائل القائمة (`listMessage`) الناقص.
 - توحيد اسم حقل `songId` مع ملف الـ proto.
 
+### إضافات
+
+- المكتبة مابقتش تمسح شاشة البرنامج اللي بيستعملها. البانر بقى اختياري:
+  شغّلها بـ `FLASH_BAILEYS_BANNER=1` لو عايزه.
+- شيلنا `console.log` اللي كانت سايبة ديباج في `getSenderLid` و
+  `encodeWAM` — كانوا بيطبعوا مع كل رسالة.
+- تنضيف `handleAlbum`: كانت بتحط على كل صورة في الألبوم بيانات إعلانية
+  مزيفة (`forwardedNewsletterMessageInfo`، `forwardingScore: 99999`،
+  `isForwarded`، `starred`، `disappearingMode`). سيبنا بس
+  `messageAssociation` اللي بيربط الصور بالألبوم.
+- اختبارات: `npm test` (بـ `node:test` المدمج، من غير أي اعتماديات خارجية).
+
+## الاختبارات
+
+```bash
+npm test
+```
+
+بيشغّل اختبارات الـ jid helpers واختبارات حماية للتنضيف، وكلهم بيشتغلوا من
+غير ما تثبّت أي حزمة.
+
 ## الترخيص
 
 MIT — شوف [LICENSE](./LICENSE). مبني على

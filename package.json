@@ -29,11 +29,7 @@
     "changelog:preview": "conventional-changelog -p angular -u",
     "changelog:last": "conventional-changelog -p angular -r 2",
     "gen:protobuf": "sh WAProto/GenerateStatics.sh",
-    "example": "node --inspect Example/example.js",
-    "lint": "eslint src --ext .js",
-    "lint:fix": "yarn lint --fix",
-    "release": "release-it",
-    "test": "jest"
+    "test": "node --test test/*.test.js"
   },
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
