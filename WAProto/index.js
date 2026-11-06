@@ -44640,7 +44640,7 @@ $root.proto = (function() {
          * @memberof proto
          * @interface IEmbeddedMusic
          * @property {string|null} [musicContentMediaId] EmbeddedMusic musicContentMediaId
-         * @property {string|null} [narutoId] EmbeddedMusic narutoId
+         * @property {string|null} [songId] EmbeddedMusic songId
          * @property {string|null} [author] EmbeddedMusic author
          * @property {string|null} [title] EmbeddedMusic title
          * @property {string|null} [artworkDirectPath] EmbeddedMusic artworkDirectPath
@@ -44676,12 +44676,12 @@ $root.proto = (function() {
         EmbeddedMusic.prototype.musicContentMediaId = null;
 
         /**
-         * EmbeddedMusic narutoId.
-         * @member {string|null|undefined} narutoId
+         * EmbeddedMusic songId.
+         * @member {string|null|undefined} songId
          * @memberof proto.EmbeddedMusic
          * @instance
          */
-        EmbeddedMusic.prototype.narutoId = null;
+        EmbeddedMusic.prototype.songId = null;
 
         /**
          * EmbeddedMusic author.
@@ -44765,8 +44765,8 @@ $root.proto = (function() {
         });
 
         // Virtual OneOf for proto3 optional field
-        Object.defineProperty(EmbeddedMusic.prototype, "_narutoId", {
-            get: $util.oneOfGetter($oneOfFields = ["narutoId"]),
+        Object.defineProperty(EmbeddedMusic.prototype, "_songId", {
+            get: $util.oneOfGetter($oneOfFields = ["songId"]),
             set: $util.oneOfSetter($oneOfFields)
         });
 
@@ -44850,8 +44850,8 @@ $root.proto = (function() {
                 writer = $Writer.create();
             if (message.musicContentMediaId != null && Object.hasOwnProperty.call(message, "musicContentMediaId"))
                 writer.uint32(/* id 1, wireType 2 =*/10).string(message.musicContentMediaId);
-            if (message.narutoId != null && Object.hasOwnProperty.call(message, "narutoId"))
-                writer.uint32(/* id 2, wireType 2 =*/18).string(message.narutoId);
+            if (message.songId != null && Object.hasOwnProperty.call(message, "songId"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.songId);
             if (message.author != null && Object.hasOwnProperty.call(message, "author"))
                 writer.uint32(/* id 3, wireType 2 =*/26).string(message.author);
             if (message.title != null && Object.hasOwnProperty.call(message, "title"))
@@ -44909,7 +44909,7 @@ $root.proto = (function() {
                         break;
                     }
                 case 2: {
-                        message.narutoId = reader.string();
+                        message.songId = reader.string();
                         break;
                     }
                 case 3: {
@@ -44989,10 +44989,10 @@ $root.proto = (function() {
                 if (!$util.isString(message.musicContentMediaId))
                     return "musicContentMediaId: string expected";
             }
-            if (message.narutoId != null && message.hasOwnProperty("narutoId")) {
-                properties._narutoId = 1;
-                if (!$util.isString(message.narutoId))
-                    return "narutoId: string expected";
+            if (message.songId != null && message.hasOwnProperty("songId")) {
+                properties._songId = 1;
+                if (!$util.isString(message.songId))
+                    return "songId: string expected";
             }
             if (message.author != null && message.hasOwnProperty("author")) {
                 properties._author = 1;
@@ -45056,8 +45056,8 @@ $root.proto = (function() {
             var message = new $root.proto.EmbeddedMusic();
             if (object.musicContentMediaId != null)
                 message.musicContentMediaId = String(object.musicContentMediaId);
-            if (object.narutoId != null)
-                message.narutoId = String(object.narutoId);
+            if (object.songId != null)
+                message.songId = String(object.songId);
             if (object.author != null)
                 message.author = String(object.author);
             if (object.title != null)
@@ -45109,10 +45109,10 @@ $root.proto = (function() {
                 if (options.oneofs)
                     object._musicContentMediaId = "musicContentMediaId";
             }
-            if (message.narutoId != null && message.hasOwnProperty("narutoId")) {
-                object.narutoId = message.narutoId;
+            if (message.songId != null && message.hasOwnProperty("songId")) {
+                object.songId = message.songId;
                 if (options.oneofs)
-                    object._narutoId = "narutoId";
+                    object._songId = "songId";
             }
             if (message.author != null && message.hasOwnProperty("author")) {
                 object.author = message.author;
@@ -134830,7 +134830,7 @@ $root.proto = (function() {
              * @memberof proto.StatusAttribution
              * @interface IMusic
              * @property {string|null} [authorName] Music authorName
-             * @property {string|null} [narutoId] Music narutoId
+             * @property {string|null} [songId] Music songId
              * @property {string|null} [title] Music title
              * @property {string|null} [author] Music author
              * @property {string|null} [artistAttribution] Music artistAttribution
@@ -134861,12 +134861,12 @@ $root.proto = (function() {
             Music.prototype.authorName = null;
 
             /**
-             * Music narutoId.
-             * @member {string|null|undefined} narutoId
+             * Music songId.
+             * @member {string|null|undefined} songId
              * @memberof proto.StatusAttribution.Music
              * @instance
              */
-            Music.prototype.narutoId = null;
+            Music.prototype.songId = null;
 
             /**
              * Music title.
@@ -134910,8 +134910,8 @@ $root.proto = (function() {
             });
 
             // Virtual OneOf for proto3 optional field
-            Object.defineProperty(Music.prototype, "_narutoId", {
-                get: $util.oneOfGetter($oneOfFields = ["narutoId"]),
+            Object.defineProperty(Music.prototype, "_songId", {
+                get: $util.oneOfGetter($oneOfFields = ["songId"]),
                 set: $util.oneOfSetter($oneOfFields)
             });
 
@@ -134965,8 +134965,8 @@ $root.proto = (function() {
                     writer = $Writer.create();
                 if (message.authorName != null && Object.hasOwnProperty.call(message, "authorName"))
                     writer.uint32(/* id 1, wireType 2 =*/10).string(message.authorName);
-                if (message.narutoId != null && Object.hasOwnProperty.call(message, "narutoId"))
-                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.narutoId);
+                if (message.songId != null && Object.hasOwnProperty.call(message, "songId"))
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.songId);
                 if (message.title != null && Object.hasOwnProperty.call(message, "title"))
                     writer.uint32(/* id 3, wireType 2 =*/26).string(message.title);
                 if (message.author != null && Object.hasOwnProperty.call(message, "author"))
@@ -135014,7 +135014,7 @@ $root.proto = (function() {
                             break;
                         }
                     case 2: {
-                            message.narutoId = reader.string();
+                            message.songId = reader.string();
                             break;
                         }
                     case 3: {
@@ -135074,10 +135074,10 @@ $root.proto = (function() {
                     if (!$util.isString(message.authorName))
                         return "authorName: string expected";
                 }
-                if (message.narutoId != null && message.hasOwnProperty("narutoId")) {
-                    properties._narutoId = 1;
-                    if (!$util.isString(message.narutoId))
-                        return "narutoId: string expected";
+                if (message.songId != null && message.hasOwnProperty("songId")) {
+                    properties._songId = 1;
+                    if (!$util.isString(message.songId))
+                        return "songId: string expected";
                 }
                 if (message.title != null && message.hasOwnProperty("title")) {
                     properties._title = 1;
@@ -135116,8 +135116,8 @@ $root.proto = (function() {
                 var message = new $root.proto.StatusAttribution.Music();
                 if (object.authorName != null)
                     message.authorName = String(object.authorName);
-                if (object.narutoId != null)
-                    message.narutoId = String(object.narutoId);
+                if (object.songId != null)
+                    message.songId = String(object.songId);
                 if (object.title != null)
                     message.title = String(object.title);
                 if (object.author != null)
@@ -135147,10 +135147,10 @@ $root.proto = (function() {
                     if (options.oneofs)
                         object._authorName = "authorName";
                 }
-                if (message.narutoId != null && message.hasOwnProperty("narutoId")) {
-                    object.narutoId = message.narutoId;
+                if (message.songId != null && message.hasOwnProperty("songId")) {
+                    object.songId = message.songId;
                     if (options.oneofs)
-                        object._narutoId = "narutoId";
+                        object._songId = "songId";
                 }
                 if (message.title != null && message.hasOwnProperty("title")) {
                     object.title = message.title;
