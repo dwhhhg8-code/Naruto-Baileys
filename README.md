@@ -1,7 +1,7 @@
 # ⚡ FLASH Baileys
 
 نسخة معدّلة ومحسّنة من مكتبة Baileys لبوتات واتساب متعددة الأجهزة.
-المالك: **haitham (dwhhhg8-code)**.
+المالك: **haitham (dwhhhg8-code)** — مع **vhbvhb69-ai**.
 
 ## التثبيت
 
@@ -45,7 +45,10 @@ start()
 ## اللي اتعدّل في النسخة دي
 
 - إزالة الإعلانات المدمجة: متابعة القنوات التلقائية وحقن
-  `forwardedNewsletterMessageInfo` في الرسائل.
+  `forwardedNewsletterMessageInfo` في الرسائل، وكمان اللي كان محقون في رسائل
+  الألبوم (`handleAlbum`).
+- المكتبة مبقتش تعمل `console.clear()` ولا تطبع بانر أول ما تتعمل لها import.
+  لو عايز البانر شغّله بـ `FLASH_BAILEYS_BANNER=1`.
 - إصلاح `assertColor` اللي كان بيرجّع `undefined` مع الألوان الرقمية.
 - `requestPairingCode` بقى بيولّد كود عشوائي آمن لو مفيش كود مخصص، وبيرفض
   أي كود مش 8 حروف.

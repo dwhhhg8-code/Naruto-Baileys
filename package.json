@@ -18,7 +18,7 @@
     "url": "https://github.com/dwhhhg8-code/Naruto-Baileys/issues"
   },
   "license": "MIT",
-  "author": "haitham (dwhhhg8-code)",
+  "author": "haitham (dwhhhg8-code) <vhbvhb69-ai>",
   "main": "./lib/index.js",
   "files": [
     "lib",
@@ -101,5 +101,9 @@
   "packageManager": "yarn@1.22.19",
   "engines": {
     "node": ">=20.0.0"
-  }
+  },
+  "contributors": [
+    "haitham <dwhhhg8-code>",
+    "vhbvhb69-ai"
+  ]
 }
