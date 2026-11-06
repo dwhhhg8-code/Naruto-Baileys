@@ -1,0 +1,20 @@
+node_modules/
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# session / credentials
+auth_info/
+session/
+*.session
+creds.json
+
+# build output
+dist/
+docs/
+
+# editors / os
+.DS_Store
+.idea/
+.vscode/
+*.bak

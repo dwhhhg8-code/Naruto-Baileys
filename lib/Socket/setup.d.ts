@@ -1,7 +1,7 @@
-// setup.d.ts by alip
+// wrapper.d.ts
 import { proto } from '../../WAProto';
 
-declare namespace NotForrAll {
+declare namespace FlashWrapper {
     interface MediaUploadOptions {
         fileEncSha256?: Buffer;
         mediaType?: string;
@@ -186,8 +186,8 @@ declare namespace NotForrAll {
         eventMessage?: EventMessage;
         pollResultMessage?: PollResultMessage;
         sender?: string;
-        listMessage?: ListMessage; // <-- BARU
-        groupStoryMessage?: GroupStoryMessage; // <-- BARU
+        listMessage?: ListMessage;
+        groupStoryMessage?: GroupStoryMessage;
     }
 
     interface MessageOptions {
@@ -204,67 +204,67 @@ declare namespace NotForrAll {
         generateWAMessageFromContent: (jid: string, content: any, options?: any) => Promise<any>;
         generateWAMessage: (jid: string, content: any, options?: any) => Promise<any>;
         generateMessageID: () => string;
-        // Asumsi Utils punya fungsi WABinary terkait JID
+        // JID helpers exposed to the wrapper
         jidNormalizedUser: (jid: string) => string;
         isJidGroup: (jid: string) => boolean;
     }
 }
 
-declare class NotForrAll {
+declare class FlashWrapper {
     constructor(
-        utils: NotForrAll.Utils,
-        waUploadToServer: NotForrAll.WAMediaUploadFunction,
+        utils: FlashWrapper.Utils,
+        waUploadToServer: FlashWrapper.WAMediaUploadFunction,
         relayMessageFn?: (jid: string, content: any, options?: any) => Promise<any>
     );
     
-    detectType(content: NotForrAll.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | 'LIST' | 'GROUP_STORY' | null; // <-- Diperbarui
+    detectType(content: FlashWrapper.MessageContent): 'PAYMENT' | 'PRODUCT' | 'INTERACTIVE' | 'ALBUM' | 'EVENT' | 'POLL_RESULT' | 'LIST' | 'GROUP_STORY' | null;
 
     handlePayment(
-        content: { requestPaymentMessage: NotForrAll.PaymentMessage },
+        content: { requestPaymentMessage: FlashWrapper.PaymentMessage },
         quoted?: proto.IWebMessageInfo
     ): Promise<{ requestPaymentMessage: proto.Message.RequestPaymentMessage }>;
 
     handleProduct(
-        content: { productMessage: NotForrAll.ProductMessage },
+        content: { productMessage: FlashWrapper.ProductMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<{ viewOnceMessage: proto.Message.ViewOnceMessage }>;
 
     handleInteractive(
-        content: { interactiveMessage: NotForrAll.InteractiveMessage },
+        content: { interactiveMessage: FlashWrapper.InteractiveMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<{ interactiveMessage: proto.Message.InteractiveMessage }>;
 
     handleAlbum(
-        content: { albumMessage: NotForrAll.AlbumItem[] },
+        content: { albumMessage: FlashWrapper.AlbumItem[] },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
 
     handleEvent(
-        content: { eventMessage: NotForrAll.EventMessage },
+        content: { eventMessage: FlashWrapper.EventMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
     
     handlePollResult(
-        content: { pollResultMessage: NotForrAll.PollResultMessage },
+        content: { pollResultMessage: FlashWrapper.PollResultMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
 
-    handleList( // <-- BARU
-        content: { listMessage: NotForrAll.ListMessage },
+    handleList(
+        content: { listMessage: FlashWrapper.ListMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
 
-    handleGroupStory( // <-- BARU
-        content: { groupStoryMessage: NotForrAll.GroupStoryMessage },
+    handleGroupStory(
+        content: { groupStatusMessage: FlashWrapper.GroupStoryMessage },
         jid: string,
         quoted?: proto.IWebMessageInfo
     ): Promise<any>;
 }
 
-export = NotForrAll;
+export = FlashWrapper;
